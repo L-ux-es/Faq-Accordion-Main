@@ -60,8 +60,18 @@ Users should be able to:
 ```
 
 ```js
-function expand(id) {
-    const indexAnswerToChange = String(id).at(1) - 1;
+const answers = document.getElementsByClassName("answer");
+const images = document.getElementsByClassName("expand-contract-img");
+const imagenPlus = "assets/images/icon-plus.svg";
+const imagenMinus = "assets/images/icon-minus.svg";
+const classToChange = "hidden";
+/**
+ * Show or hide the answer to the question .If the answer is displayed, hide the other answers.
+ * Change the image of the button as Show or Hide.
+ * @param id Button id, with the format "b#". Example: "b12".
+ */
+function expandOrContract(id) {
+    const indexAnswerToChange = String(id).slice(1) - 1;
     for (let i = 0; i < answers.length; i++) {
         if (i !== indexAnswerToChange && !answers.item(i).classList.contains(classToChange)) {
             answers.item(i).classList.add(classToChange);
